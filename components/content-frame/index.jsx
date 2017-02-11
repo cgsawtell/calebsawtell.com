@@ -21,7 +21,10 @@ class ContentFrame extends Component {
   componentDidMount() {
     window.addEventListener("mousemove",this.handleMouseMove)
   }
-  calculateOffset(mouseX, mouseY, maxOffsetAmount = 4){
+  componentWillUnmount() {
+    window.removeEventListener("mousemove",this.handleMouseMove)    
+  }
+  calculateOffset(mouseX, mouseY, maxOffsetAmount = 2){
     const halfWindowWidth = window.outerWidth / 2
     const halfWindowHeight = window.outerHeight / 2
     const x =  ((mouseX - halfWindowWidth) / halfWindowWidth) * maxOffsetAmount
