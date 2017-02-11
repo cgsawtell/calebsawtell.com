@@ -4,7 +4,7 @@ class About extends Component {
   render() {
     return (
       <div>
-        <ContentFrame>
+        <ContentFrame title={"About"}>
           <p>Poop</p>
         </ContentFrame>
       </div>

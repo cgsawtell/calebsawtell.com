@@ -33,25 +33,19 @@ class ContentFrame extends Component {
   }
   render() {
     const offset=this.calculateOffset(this.state.mouseX,this.state.mouseY)
+    const offsetStyle = {transform:`translate(${offset.x}px, ${offset.y}px)`}
     return (
       <div className={"frame"}>
         <span 
           className={'frame-edge-left'}
-          style={
-            {
-                transform:`translate(${offset.x}px, ${offset.y}px)`,
-            }
-          }
+          style={offsetStyle}
         >
         </span>
+        {this.props.title ? <h4  style={offsetStyle} className={'frame-title'}>{this.props.title}</h4>: ''}
         {this.props.children}
         <span 
           className={'frame-edge-right'}
-          style={
-            {
-                transform:`translate(${offset.x}px, ${offset.y}px)`,
-            }
-          }
+          style={offsetStyle}
         >
         </span>        
       </div>
