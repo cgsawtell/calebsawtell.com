@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Caleb Sawtell <caleb.sawtell@gmail.com>",
   "dependencies": {
+    "faker": "^3.1.0",
     "front-matter": "^2.1.1",
     "gatsby": "^0.12.20",
     "highlight.js": "^9.8.0",
