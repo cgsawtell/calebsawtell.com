@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "calebsawtell.com",
+  "description": "Based on the Gatsby default starter",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Caleb Sawtell <caleb.sawtell@gmail.com>",
   "dependencies": {
     "front-matter": "^2.1.1",
     "gatsby": "^0.12.20",
