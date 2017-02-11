@@ -1,3 +1,5 @@
+var precss = require("precss")
+
 module.exports = function(config, env) {
   var is_static = env === 'static'
   var is_develop = env === 'develop'
@@ -5,10 +7,9 @@ module.exports = function(config, env) {
 
   config.merge({
     postcss: [
-      require('lost')
+      precss
     ]
   })
-  console.log("I'm configuing");
 
   return config
 }
