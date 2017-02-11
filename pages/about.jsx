@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ContentFrame from '../components/content-frame';
 import faker from 'faker';
+
 class About extends Component {
   render() {
     return (
