@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import { prefixLink } from 'gatsby-helpers'
 import { TypographyStyle, GoogleFont } from 'react-typography'
 import typography from './utils/typography'
+import Typekit from 'react-typekit'
 
 const BUILD_TIME = new Date().getTime()
 
@@ -15,7 +16,7 @@ module.exports = React.createClass({
   },
   render () {
     const head = Helmet.rewind()
-
+    const kitId = "xmy7yhr";
     let css
     if (process.env.NODE_ENV === 'production') {
       css = <style dangerouslySetInnerHTML={{ __html: require('!raw!./public/styles.css') }} />
@@ -33,7 +34,7 @@ module.exports = React.createClass({
           {head.title.toComponent()}
           {head.meta.toComponent()}
           <TypographyStyle typography={typography} />
-          <GoogleFont typography={typography} />
+          <Typekit kitId={kitId}/>
           {css}
         </head>
         <body>

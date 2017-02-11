@@ -3,7 +3,10 @@ import { Container } from 'react-responsive-grid'
 import { Link } from 'react-router'
 import { prefixLink } from 'gatsby-helpers'
 import Headroom from 'react-headroom'
+import Navigation from '../components/navigation'
+import BackgroundVisualisation from '../components/background-visualisation'
 import '../css/markdown-styles'
+import '../css/globals'
 
 import { rhythm } from '../utils/typography'
 
@@ -16,12 +19,10 @@ module.exports = React.createClass({
   render () {
     return (
       <div>
+        <BackgroundVisualisation/>
         <Headroom
           wrapperStyle={{
             marginBottom: rhythm(1),
-          }}
-          style={{
-            background: 'lightgray',
           }}
         >
           <Container
@@ -29,6 +30,7 @@ module.exports = React.createClass({
               maxWidth: 960,
               paddingTop: 0,
               padding: `${rhythm(1)} ${rhythm(3/4)}`,
+              position: 'relative'
             }}
           >
             <Link
@@ -38,8 +40,9 @@ module.exports = React.createClass({
                 textDecoration: 'none',
               }}
             >
-              Gatsby!!!
+              
             </Link>
+            <Navigation pathname={this.props.location.pathname} navItems={[{title:'Home',pathname:'/'},{title:'About',pathname:'/about/'},{title:'Work',pathname:'/work/'},{title:'Contact',pathname:'/contact/'}]}/>
           </Container>
         </Headroom>
         <Container

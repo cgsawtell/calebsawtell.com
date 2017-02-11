@@ -5,30 +5,13 @@ import { GoogleFont } from 'react-typography'
 import CodePlugin from 'typography-plugin-code'
 
 const options = {
-  googleFonts: [
-    {
-      name: 'Montserrat',
-      styles: [
-        '700',
-      ],
-    },
-    {
-      name: 'Arvo',
-      styles: [
-        '400',
-        '400i',
-        '700',
-      ],
-    },
-  ],
-  headerFontFamily: ['Montserrat', 'sans-serif'],
-  bodyFontFamily: ['Arvo', 'sans-serif'],
+  headerFontFamily: ['rift', 'sans-serif'],
+  headerWeight:'600',
+  bodyFontFamily: ['nimbus-sans', 'sans-serif'],
+  bodyWeight:'300',
   baseFontSize: '18px',
   baseLineHeight: 1.65,
-  scaleRatio: 2.25,
-  plugins: [
-    new CodePlugin(),
-  ],
+  scaleRatio: 2.25
 }
 
 const typography = new Typography(options)

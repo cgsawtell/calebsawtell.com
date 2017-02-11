@@ -1,0 +1,9 @@
+body{
+  color: rgb(245,245,250);
+}
+
+.name{
+  font-size: 140pt;
+  line-height: 145pt;
+  letter-spacing: 0.03em;
+}
