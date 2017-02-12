@@ -32,7 +32,7 @@ class Contact extends Component {
           <label for={"email"}>Email</label>
           <input id="email" name={'email'} type="email" onChange={e => this.handleChange(e)}/>
           <label for={"message"}>Message</label>
-          <textarea name="message" id="message" cols="30" rows="10" onChange={e => this.handleChange(e)}></textarea>
+          <textarea name="message" id="message" onChange={e => this.handleChange(e)}></textarea>
           <input type="submit" value={"submit"}/>
         </form>
         </ContentFrame>
