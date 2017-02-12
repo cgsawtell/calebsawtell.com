@@ -1,3 +1,11 @@
+:root{
+  --input-background-color:rgba(120, 130, 150, 0.7);
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 body{
   color: rgb(245,245,250);
 }
@@ -6,4 +14,65 @@ body{
   font-size: 140pt;
   line-height: 145pt;
   letter-spacing: 0.03em;
+}
+
+.tag{
+  font-weight: 400;
+  font-size: 19pt;
+  line-height: 1.3em;
+  letter-spacing: 0.02em;
+  margin-left: 0.35em;
+}
+
+input,textarea{
+  display: block;
+  width: 100%;
+  margin-bottom: 1em;
+  min-height: 2.5em;
+  padding-left: 0.5em;
+  background-color: var(--input-background-color);
+  color: white;
+  font-weight: 400;
+  border: 1pt solid rgba(240, 240, 250, 0.5);
+}
+
+textarea{
+  min-height: 300px;
+}
+
+input:focus,textarea:focus{
+  animation-name: dip-in;
+  animation-duration: 400ms;
+  animation-timing-function: ease-in;
+  outline: none;
+  border: 1pt solid rgba(240, 240, 250, 1);
+}
+
+input[type="submit"]{
+  width: 45%;
+  margin-left: 30%;
+  margin-top: 1.5em;
+  height: 3em;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+form{
+  perspective: 500px;
+  margin-bottom: 0;
+}
+
+@keyframes dip-in{
+  0%{
+    opacity: 1;
+    transform:translateZ(0px)
+  }
+  30%{
+    opacity: 0.7;
+    transform:translateZ(-10px)
+  }
+  100%{
+    opacity: 1;
+    transform:translateZ(0px)
+  }
 }
