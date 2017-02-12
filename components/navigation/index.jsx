@@ -55,6 +55,7 @@ const NavItemContainer = ( {navItems, pathname = '', containerClassName = '', on
         navItem => (
           <Link 
             className={"navigation-link"}
+            key={navItem.title}
             style={{fontWeight: pathname === navItem.pathname ? 700 : 400}}
             to={prefixLink(navItem.pathname)}
             onClick={onClickFunction}
