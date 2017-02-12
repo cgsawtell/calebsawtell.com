@@ -7,6 +7,7 @@ import 'imports?THREE=three!exports?THREE.RenderPass!../../node_modules/three/ex
 import 'imports?THREE=three!exports?THREE.ConvolutionShader!../../node_modules/three/examples/js/shaders/ConvolutionShader.js'
 import 'imports?THREE=three!exports?THREE.CopyShader!../../node_modules/three/examples/js/shaders/CopyShader.js'
 import 'imports?THREE=three!exports?THREE.BloomPass!../../node_modules/three/examples/js/postprocessing/BloomPass.js'
+import pointTexture from '../../assets/textures/point.png'
 
 class ThreeDee extends Component {
   constructor(props) {
@@ -18,31 +19,32 @@ class ThreeDee extends Component {
     this.animate()
   }
   setup(){
+    this.clock = new THREE.Clock();
     this.scene = new THREE.Scene();
     this.setupRenderer();
     this.setupCamera()
     this.mesh = this.monkeyMesh()
     this.mesh.position.x = -2
-    this.mesh.scale.set(2,2,2)
+    this.mesh.scale.set( 2, 2, 2 )
     this.scene.add( this.mesh );
+
     const renderPasses = this.createPasses();
     this.setupComposer(renderPasses);
   }
   createPasses(){
     const renderPass = new THREE.RenderPass( this.scene, this.camera );
     renderPass.renderToScreen = true;
-    const effectBloom = new THREE.BloomPass( 1 );
-    effectBloom.renderToScreen = true;
-    return [renderPass,effectBloom]
+    return [renderPass]
   }
   monkeyMesh(){
-    const material= new THREE.PointsMaterial( { color:0x2cfcd6, size:0.015 } )
+    const sprite = new THREE.TextureLoader().load( pointTexture );
+    const material= new THREE.PointsMaterial( { color:0x2cfcd6, map:sprite, size:0.01 } )
     const loader = new THREE.JSONLoader();
     let monkeyParsed = loader.parse( monkeyJSON );
     return new THREE.Points( monkeyParsed.geometry, material);
   }
   setupCamera(){
-    this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
+    this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.5, 10000 );
     this.camera.position.z = 3;
   }
   setupRenderer(){
@@ -60,12 +62,10 @@ class ThreeDee extends Component {
     )
   }
   animate(){
-    requestAnimationFrame( this.animate );
-
-    this.mesh.rotation.x += 0.001;
+    const delta = this.clock.getDelta(); 
     this.mesh.rotation.y += 0.002;
-
-    this.composer.render( 0.01 );
+    this.composer.render( delta );
+    requestAnimationFrame( this.animate );
   }
   render() {
     return (
