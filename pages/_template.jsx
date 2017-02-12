@@ -19,7 +19,6 @@ module.exports = React.createClass({
   render () {
     return (
       <div>
-        <BackgroundVisualisation/>
         <Headroom
           wrapperStyle={{
             marginBottom: rhythm(1),
@@ -45,6 +44,7 @@ module.exports = React.createClass({
             <Navigation pathname={this.props.location.pathname} navItems={[{title:'Home',pathname:'/'},{title:'About',pathname:'/about/'},{title:'Work',pathname:'/work/'},{title:'Contact',pathname:'/contact/'}]}/>
           </Container>
         </Headroom>
+        <BackgroundVisualisation/>
         <Container
           style={{
             maxWidth: 960,
