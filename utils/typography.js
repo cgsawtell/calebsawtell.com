@@ -2,12 +2,11 @@ import ReactDOM from 'react-dom/server'
 import React from 'react'
 import Typography from 'typography'
 import { GoogleFont } from 'react-typography'
-import CodePlugin from 'typography-plugin-code'
 
 const options = {
   headerFontFamily: ['rift', 'sans-serif'],
   headerWeight:'600',
-  bodyFontFamily: ['nimbus-sans', 'sans-serif'],
+  bodyFontFamily: ['din-2014', 'sans-serif'],
   bodyWeight:'300',
   baseFontSize: '18px',
   baseLineHeight: 1.65,
