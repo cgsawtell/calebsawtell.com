@@ -49,12 +49,18 @@ input:focus,textarea:focus{
 }
 
 input[type="submit"]{
+  transition: transform 350ms ease-out;
   width: 45%;
   margin-left: 30%;
   margin-top: 1.5em;
   height: 3em;
   text-transform: capitalize;
   cursor: pointer;
+  font-weight: 700;
+}
+
+input[type="submit"]:hover{
+  transform:translateZ(5px)
 }
 
 form{
