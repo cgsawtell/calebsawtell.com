@@ -18,6 +18,7 @@ export default class Index extends React.Component {
         <h1 className={"name"}>
           Caleb<br/>Sawtell
         </h1>
+        <p className={"tag"}>Designer &<br/> Frontend Developer</p>
       </div>
     )
   }
