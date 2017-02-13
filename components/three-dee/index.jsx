@@ -16,6 +16,7 @@ class ThreeDee extends Component {
     this.animate = this.animate.bind(this)
     this.geometries = {}
     this.meshes = {}
+    this.monkeyPointLerpAlphas = {}
   }  
   componentDidMount() {
     this.setup()
@@ -28,12 +29,13 @@ class ThreeDee extends Component {
     this.setupCamera()
     this.meshes.monkey = this.setupMonkeyPoints()
     this.meshes.monkey.position.x = 2
-    this.meshes.monkey.scale.set( 2, 2, 2 )
+    this.meshes.monkey.scale.set( 1.5, 1.5, 1.5 )
+    this.meshes.monkey.rotateY(-0.5)
     this.scene.add( this.meshes.monkey );
 
     const renderPasses = this.createPasses();
     this.setupComposer(renderPasses);
-    setInterval(this.animatePoints.bind(this), 200);
+    setInterval(this.updatePointsTargetPositions.bind(this), 200);
   }
   createPasses(){
     const renderPass = new THREE.RenderPass( this.scene, this.camera );
@@ -46,6 +48,7 @@ class ThreeDee extends Component {
     const loader = new THREE.JSONLoader();
     let monkeyParsed = loader.parse( monkeyJSON );
     this.geometries.monkey = cloneDeep(monkeyParsed.geometry)
+    this.geometries.monkeyTargetPositions = cloneDeep(monkeyParsed.geometry)    
     return new THREE.Points(  monkeyParsed.geometry, material);
   }
   setupCamera(){
@@ -65,8 +68,8 @@ class ThreeDee extends Component {
       }
     )
   }
-  animatePoints(){
-    this.meshes.monkey.geometry.vertices.forEach(
+  updatePointsTargetPositions(){
+    this.geometries.monkeyTargetPositions.vertices.forEach(
       (vertice, i) => {
         const orginalVector = this.geometries.monkey.vertices[i].clone()
         const random = Math.random()
@@ -75,7 +78,7 @@ class ThreeDee extends Component {
         const dY = orginalVector.y + randomOffset;
         const dZ = orginalVector.z + randomOffset;
         
-        if(random<0.1){
+        if(random<0.05){
           vertice.set(dX,dY,dZ);
         }
         else{
@@ -83,12 +86,22 @@ class ThreeDee extends Component {
         }
       }
     )
+  }
+  animatePoints(){
+    this.meshes.monkey.geometry.vertices.forEach(
+      (vertice, i) => {
+        const targetVector = this.geometries.monkeyTargetPositions.vertices[i]
+        const controlAlpha = this.monkeyPointLerpAlphas[i] || 0.0001
+        vertice.lerp(targetVector, controlAlpha);
+        this.monkeyPointLerpAlphas[i] = controlAlpha+0.0001 > 1 ? 0 : controlAlpha+0.0001
+      }
+    )
     this.meshes.monkey.geometry.verticesNeedUpdate = true;
   }
   animate(){
     const delta = this.clock.getDelta(); 
+    this.animatePoints( delta );
     this.composer.render( delta );
-    
     requestAnimationFrame( this.animate );
   }
   render() {
