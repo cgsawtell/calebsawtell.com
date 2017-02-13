@@ -7,8 +7,8 @@ class About extends Component {
     return (
       <div>
         <ContentFrame title={"About"}>
-          <p>I am a Wellington based designer & developer. I love creating interfaces that blah</p>
-          <h4>Skills</h4>
+          <p>Caleb Sawtell is a designer & developer based Wellington, New Zealand. <br/>I love crafting delightful interactive experiences.</p>
+          <h4 className={"subheading"}>Skills</h4>
           <div className={"skills-container"}>
             <ul>
               <li><b>Web Technologies</b></li>
@@ -29,9 +29,9 @@ class About extends Component {
             <ul>
               <li><b>Design Tools</b></li>
               <li>Sketch</li>
-              <li>Adobe Photoshop</li> 
-              <li>Adobe Illustrator</li>
-              <li>Adobe Indesign</li>                 
+              <li>Photoshop</li> 
+              <li>Illustrator</li>
+              <li>Indesign</li>                 
               <li>Blender3d</li>
               <li>Unity3d</li>                                              
             </ul>
