@@ -27,14 +27,14 @@
   border: 1px solid white;
   opacity: 0.3;
 }
-.frame-title{
+.frame-title {
   text-align: center;
   position: absolute;
   line-height: 1em;
   top: -1.4em;
   left: 0;
   width: 100%;
-  font-size: 16.5pt;
+  font-size: 19.5pt;
   letter-spacing: 0.03em;
 }
 

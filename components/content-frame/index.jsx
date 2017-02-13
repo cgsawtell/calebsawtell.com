@@ -44,7 +44,7 @@ class ContentFrame extends Component {
           style={offsetStyle}
         >
         </span>
-        {this.props.title ? <h4  style={offsetStyle} className={'frame-title'}>{this.props.title}</h4>: ''}
+        {this.props.title ? <h2 style={offsetStyle} className={'frame-title'}>{this.props.title}</h2>: ''}
         {this.props.children}
         <span 
           className={'frame-edge-right'}

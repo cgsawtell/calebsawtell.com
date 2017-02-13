@@ -10,6 +10,7 @@
     "highlight.js": "^9.8.0",
     "history": "^2.0.2",
     "js-yaml": "^3.7.0",
+    "lodash": "^4.17.4",
     "markdown-it": "^7.0.1",
     "markdown-it-abbr": "^1.0.3",
     "markdown-it-attrs": "^0.6.3",
@@ -40,6 +41,7 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
+    "start":"gatsby develop",
     "build": "gatsby build",
     "deploy": "gatsby build --prefix-links && gh-pages -d public",
     "develop": "gatsby develop",

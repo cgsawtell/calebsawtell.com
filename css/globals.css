@@ -82,3 +82,16 @@ form{
     transform:translateZ(0px)
   }
 }
+
+li{
+  list-style: none;
+}
+
+ul{
+  margin-left: 0;
+}
+
+.skills-container{
+  display: flex;
+  justify-content: space-around;
+}
