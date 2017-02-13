@@ -11,15 +11,15 @@ body{
 }
 
 .name{
-  font-size: 140pt;
-  line-height: 145pt;
+  font-size: 130pt;
+  line-height: 135pt;
   letter-spacing: 0.03em;
 }
 
 .tag{
   font-weight: 400;
-  font-size: 19pt;
-  line-height: 1.3em;
+  font-size: 18pt;
+  line-height: 25pt;
   letter-spacing: 0.02em;
   margin-left: 0.35em;
 }
@@ -94,4 +94,29 @@ ul{
 .skills-container{
   display: flex;
   justify-content: space-around;
+}
+
+.subheading{
+  text-align: center;
+  font-size: 17pt;
+  position: relative;
+}
+
+@define-mixin subheading-rules{
+  content: '';
+  position: absolute;
+  top: calc(50% - 1px);
+  display: block;
+  height: 1px;
+  width: 32%;
+  background-color: rgba(240, 240, 250, 0.2);
+}
+
+.subheading::before{
+  @mixin subheading-rules;
+  left: 5%;
+}
+.subheading::after{
+  @mixin subheading-rules;
+  right: 5%;
 }
