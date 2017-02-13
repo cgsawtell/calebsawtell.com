@@ -31,11 +31,12 @@ class ThreeDee extends Component {
     this.meshes.monkey.position.x = 2
     this.meshes.monkey.scale.set( 1.5, 1.5, 1.5 )
     this.meshes.monkey.rotateY(-0.5)
+    this.thrasIt();
     this.scene.add( this.meshes.monkey );
 
     const renderPasses = this.createPasses();
     this.setupComposer(renderPasses);
-    setInterval(this.updatePointsTargetPositions.bind(this), 200);
+    setInterval(this.updatePointsTargetPositions.bind(this), 300);
   }
   createPasses(){
     const renderPass = new THREE.RenderPass( this.scene, this.camera );
@@ -44,7 +45,7 @@ class ThreeDee extends Component {
   }
   setupMonkeyPoints(){
     const sprite = new THREE.TextureLoader().load( pointTexture );
-    const material= new THREE.PointsMaterial( { color:0x2cfcd6, map:sprite, size:0.015 } )
+    const material= new THREE.PointsMaterial( { color:0x2cfcd6, map:sprite, size:0.007 } )
     const loader = new THREE.JSONLoader();
     let monkeyParsed = loader.parse( monkeyJSON );
     this.geometries.monkey = cloneDeep(monkeyParsed.geometry)
@@ -68,17 +69,15 @@ class ThreeDee extends Component {
       }
     )
   }
-  updatePointsTargetPositions(){
+  randomisePointTargets(magnatude, threshold){
     this.geometries.monkeyTargetPositions.vertices.forEach(
       (vertice, i) => {
         const orginalVector = this.geometries.monkey.vertices[i].clone()
-        const random = Math.random()
-        const randomOffset = random * 0.05
-        const dX = orginalVector.x + randomOffset;
-        const dY = orginalVector.y + randomOffset;
-        const dZ = orginalVector.z + randomOffset;
+        const dX = orginalVector.x + Math.random() * magnatude;
+        const dY = orginalVector.y + Math.random() * magnatude;
+        const dZ = orginalVector.z + Math.random() * magnatude;
         
-        if(random<0.05){
+        if(Math.random() < threshold){
           vertice.set(dX,dY,dZ);
         }
         else{
@@ -87,13 +86,20 @@ class ThreeDee extends Component {
       }
     )
   }
-  animatePoints(){
+  thrasIt(){
+    this.randomisePointTargets(50, 1)
+  }
+  updatePointsTargetPositions(){
+    this.randomisePointTargets(0.1, 0.09)
+  }
+  animatePoints( delta ){
     this.meshes.monkey.geometry.vertices.forEach(
       (vertice, i) => {
+        const incriment = 1 * delta
         const targetVector = this.geometries.monkeyTargetPositions.vertices[i]
-        const controlAlpha = this.monkeyPointLerpAlphas[i] || 0.0001
+        const controlAlpha = this.monkeyPointLerpAlphas[i] || incriment
         vertice.lerp(targetVector, controlAlpha);
-        this.monkeyPointLerpAlphas[i] = controlAlpha+0.0001 > 1 ? 0 : controlAlpha+0.0001
+        this.monkeyPointLerpAlphas[i] = controlAlpha + incriment ? 0 : controlAlpha + incriment
       }
     )
     this.meshes.monkey.geometry.verticesNeedUpdate = true;
