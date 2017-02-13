@@ -22,6 +22,7 @@ class About extends Component {
               <li><b>Design</b></li>
               <li>Interface Design</li>
               <li>UX Design</li>
+              <li>Web Design</li>
               <li>Typography</li>
               <li>Animation</li>
               <li>Game Design</li>       
