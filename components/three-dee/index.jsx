@@ -45,7 +45,7 @@ class ThreeDee extends Component {
   }
   setupMonkeyPoints(){
     const sprite = new THREE.TextureLoader().load( pointTexture );
-    const material= new THREE.PointsMaterial( { color:0x2cfcd6, map:sprite, size:0.007 } )
+    const material= new THREE.PointsMaterial( { color:0xa8bffa, map:sprite, size:0.007 } )
     const loader = new THREE.JSONLoader();
     let monkeyParsed = loader.parse( monkeyJSON );
     this.geometries.monkey = cloneDeep(monkeyParsed.geometry)
