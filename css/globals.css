@@ -66,6 +66,7 @@ input[type="submit"]:hover{
 form{
   perspective: 500px;
   margin-bottom: 0;
+  width:100%;
 }
 
 @keyframes dip-in{
@@ -92,14 +93,16 @@ ul{
 }
 
 .skills-container{
-  display: flex;
+  display: inline-flex;
   justify-content: space-around;
+  width: 100%;
 }
 
 .subheading{
   text-align: center;
   font-size: 17pt;
   position: relative;
+  width: 100%;
 }
 
 @define-mixin subheading-rules{

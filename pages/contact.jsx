@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ContentFrame from '../components/content-frame';
+import FlexContainer from '../components/flex-container'
 
 class Contact extends Component {
   constructor(props) {
@@ -26,15 +27,17 @@ class Contact extends Component {
     return (
       <div>
         <ContentFrame title={"Contact"}>
-        <form onSubmit={e => { this.handleSubmit(e) }}>
-          <label htmlFor={"name"}>Name</label>
-          <input id="name" name={'name'} type="text" onChange={e => this.handleChange(e)}/>
-          <label htmlFor={"email"}>Email</label>
-          <input id="email" name={'email'} type="email" onChange={e => this.handleChange(e)}/>
-          <label htmlFor={"message"}>Message</label>
-          <textarea name="message" id="message" onChange={e => this.handleChange(e)}></textarea>
-          <input type="submit" value={"submit"}/>
-        </form>
+          <FlexContainer>
+            <form onSubmit={e => { this.handleSubmit(e) }}>
+              <label htmlFor={"name"}>Name</label>
+              <input id="name" name={'name'} type="text" onChange={e => this.handleChange(e)}/>
+              <label htmlFor={"email"}>Email</label>
+              <input id="email" name={'email'} type="email" onChange={e => this.handleChange(e)}/>
+              <label htmlFor={"message"}>Message</label>
+              <textarea name="message" id="message" onChange={e => this.handleChange(e)}></textarea>
+              <input type="submit" value={"Send Message"}/>
+            </form>
+          </FlexContainer>
         </ContentFrame>
       </div>
     );
