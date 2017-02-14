@@ -6,7 +6,7 @@
 .frame{
   position: relative;
   height: 80vh;
-  min-height: 400px;
+  min-height: 630px;
   max-height: 700px;
   width: 80%;
   background-color: var(--frame-background-color);
