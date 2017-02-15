@@ -77,7 +77,7 @@ class MobileOverlay extends React.Component {
     this.debouncedWindowUpdate = this.debouncedWindowUpdate.bind(this)
     this.fadeOutMobileOverlay = this.fadeOutMobileOverlay.bind(this)
     this.state = {
-      windowInnerHeight:0,
+      windowInnerHeight:window ? window.innerHeight : 0,
       animationName:'fade-in'
     }
   }
