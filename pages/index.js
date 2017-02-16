@@ -15,10 +15,12 @@ export default class Index extends React.Component {
             {"name": "keywords", "content": "sample, something"},
           ]}
         />
-        <h1 className={"name"}>
-          Caleb<br/>Sawtell
-        </h1>
-        <p className={"tag"}>Digital Designer &<br/> Frontend Developer</p>
+        <div className={'name-tag-container'}>
+          <h1 className={"name"}>
+            Caleb<br/>Sawtell
+          </h1>
+          <p className={"tag"}>Digital Designer &<br/> Frontend Developer</p>
+        </div>
       </div>
     )
   }

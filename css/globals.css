@@ -10,9 +10,14 @@ body{
   color: rgb(245,245,250);
 }
 
+.name-tag-container{
+  position: absolute;
+  bottom:20vh;
+}
+
 .name{
-  font-size: 130pt;
-  line-height: 135pt;
+  font-size: 120pt;
+  line-height: 125pt;
   letter-spacing: 0.03em;
 }
 
@@ -40,7 +45,8 @@ textarea{
   min-height: 300px;
 }
 
-input:focus,textarea:focus{
+input:focus,
+textarea:focus{
   animation-name: dip-in;
   animation-duration: 400ms;
   animation-timing-function: ease-in;

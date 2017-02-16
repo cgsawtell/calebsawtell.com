@@ -30,3 +30,6 @@ node_modules
 
 # Local builds
 public
+
+#blender autosave
+*.blend1

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as THREE from 'three';
-import {cloneDeep} from 'lodash'
-import monkeyJSON from '../../assets/meshes/monkey.json';
+import { cloneDeep } from 'lodash'
+import faceJSON from '../../assets/meshes/face.json';
 import 'imports?THREE=three!exports?THREE.EffectComposer!../../node_modules/three/examples/js/postprocessing/EffectComposer.js'
 import 'imports?THREE=three!exports?THREE.ShaderPass!../../node_modules/three/examples/js/postprocessing/ShaderPass.js'
 import 'imports?THREE=three!exports?THREE.RenderPass!../../node_modules/three/examples/js/postprocessing/RenderPass.js'
@@ -16,7 +16,7 @@ class ThreeDee extends Component {
     this.animate = this.animate.bind(this)
     this.geometries = {}
     this.meshes = {}
-    this.monkeyPointLerpAlphas = {}
+    this.facePointLerpAlphas = {}
   }  
   componentDidMount() {
     this.setup()
@@ -27,12 +27,14 @@ class ThreeDee extends Component {
     this.scene = new THREE.Scene();
     this.setupRenderer();
     this.setupCamera()
-    this.meshes.monkey = this.setupMonkeyPoints()
-    this.meshes.monkey.position.x = 2
-    this.meshes.monkey.scale.set( 1.5, 1.5, 1.5 )
-    this.meshes.monkey.rotateY(-0.5)
+    this.meshes.face = this.setupPoints()
+    this.meshes.face.position.z = -30   
+    this.meshes.face.position.x = 140
+    this.meshes.face.position.y = -20
+    
+    this.meshes.face.rotateY(THREE.Math.degToRad(50))
     this.thrasIt();
-    this.scene.add( this.meshes.monkey );
+    this.scene.add( this.meshes.face );
 
     const renderPasses = this.createPasses();
     this.setupComposer(renderPasses);
@@ -43,18 +45,19 @@ class ThreeDee extends Component {
     renderPass.renderToScreen = true;
     return [renderPass]
   }
-  setupMonkeyPoints(){
+  setupPoints(){
     const sprite = new THREE.TextureLoader().load( pointTexture );
-    const material= new THREE.PointsMaterial( { color:0xa8bffa, map:sprite, size:0.007 } )
+    const material= new THREE.PointsMaterial( { color:0xa8bffa, map:sprite, size:0.5 } )
     const loader = new THREE.JSONLoader();
-    let monkeyParsed = loader.parse( monkeyJSON );
-    this.geometries.monkey = cloneDeep(monkeyParsed.geometry)
-    this.geometries.monkeyTargetPositions = cloneDeep(monkeyParsed.geometry)    
-    return new THREE.Points(  monkeyParsed.geometry, material);
+    faceJSON.faces=[]
+    let faceParsed = loader.parse( faceJSON );
+    this.geometries.face = cloneDeep(faceParsed.geometry)
+    this.geometries.faceTargetPositions = cloneDeep(faceParsed.geometry)
+    return new THREE.Points(  faceParsed.geometry, material);
   }
   setupCamera(){
     this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.5, 10000 );
-    this.camera.position.z = 3;
+    this.camera.position.z = 200;
   }
   setupRenderer(){
     this.renderer = new THREE.WebGLRenderer({canvas:this.canvas, alpha:true});
@@ -70,9 +73,9 @@ class ThreeDee extends Component {
     )
   }
   randomisePointTargets(magnatude, threshold){
-    this.geometries.monkeyTargetPositions.vertices.forEach(
+    this.geometries.faceTargetPositions.vertices.forEach(
       (vertice, i) => {
-        const orginalVector = this.geometries.monkey.vertices[i].clone()
+        const orginalVector = this.geometries.face.vertices[i].clone()
         const dX = orginalVector.x + Math.random() * magnatude;
         const dY = orginalVector.y + Math.random() * magnatude;
         const dZ = orginalVector.z + Math.random() * magnatude;
@@ -87,26 +90,26 @@ class ThreeDee extends Component {
     )
   }
   thrasIt(){
-    this.randomisePointTargets(50, 1)
+    this.randomisePointTargets(20000, 1)
   }
   updatePointsTargetPositions(){
-    this.randomisePointTargets(0.1, 0.09)
+    this.randomisePointTargets(5, 0.05)
   }
-  animatePoints( delta ){
-    this.meshes.monkey.geometry.vertices.forEach(
+  animatePoints( speed, delta ){
+    this.meshes.face.geometry.vertices.forEach(
       (vertice, i) => {
-        const incriment = 1 * delta
-        const targetVector = this.geometries.monkeyTargetPositions.vertices[i]
-        const controlAlpha = this.monkeyPointLerpAlphas[i] || incriment
+        const incriment = speed * delta
+        const targetVector = this.geometries.faceTargetPositions.vertices[i]
+        const controlAlpha = this.facePointLerpAlphas[i] || incriment
         vertice.lerp(targetVector, controlAlpha);
-        this.monkeyPointLerpAlphas[i] = controlAlpha + incriment ? 0 : controlAlpha + incriment
+        this.facePointLerpAlphas[i] = controlAlpha + incriment ? 0 : controlAlpha + incriment
       }
     )
-    this.meshes.monkey.geometry.verticesNeedUpdate = true;
+    this.meshes.face.geometry.verticesNeedUpdate = true;
   }
   animate(){
     const delta = this.clock.getDelta(); 
-    this.animatePoints( delta );
+    this.animatePoints( 1.5, delta );
     this.composer.render( delta );
     requestAnimationFrame( this.animate );
   }
