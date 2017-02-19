@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import * as THREE from 'three';
 import { cloneDeep } from 'lodash'
-import faceJSON from '../../assets/meshes/face.json';
 import 'imports?THREE=three!exports?THREE.EffectComposer!../../node_modules/three/examples/js/postprocessing/EffectComposer.js'
 import 'imports?THREE=three!exports?THREE.ShaderPass!../../node_modules/three/examples/js/postprocessing/ShaderPass.js'
 import 'imports?THREE=three!exports?THREE.RenderPass!../../node_modules/three/examples/js/postprocessing/RenderPass.js'
 import 'imports?THREE=three!exports?THREE.ConvolutionShader!../../node_modules/three/examples/js/shaders/ConvolutionShader.js'
 import 'imports?THREE=three!exports?THREE.CopyShader!../../node_modules/three/examples/js/shaders/CopyShader.js'
 import 'imports?THREE=three!exports?THREE.BloomPass!../../node_modules/three/examples/js/postprocessing/BloomPass.js'
+import faceJSON from '../../assets/meshes/face.json';
 import pointTexture from '../../assets/textures/point.png'
 
 class ThreeDee extends Component {
@@ -29,10 +29,12 @@ class ThreeDee extends Component {
     this.setupCamera()
     this.meshes.face = this.setupPoints()
     this.meshes.face.position.z = -30   
-    this.meshes.face.position.x = 140
+    this.meshes.face.position.x = 150
     this.meshes.face.position.y = -20
     
-    this.meshes.face.rotateY(THREE.Math.degToRad(50))
+    this.meshes.face.rotateX(THREE.Math.degToRad(-10))
+    this.meshes.face.rotateY(THREE.Math.degToRad(30))
+
     this.thrasIt();
     this.scene.add( this.meshes.face );
 
@@ -47,7 +49,7 @@ class ThreeDee extends Component {
   }
   setupPoints(){
     const sprite = new THREE.TextureLoader().load( pointTexture );
-    const material= new THREE.PointsMaterial( { color:0xa8bffa, map:sprite, size:0.5 } )
+    const material= new THREE.PointsMaterial( { color:0xa8bffa, map:sprite, size:0.7 } )
     const loader = new THREE.JSONLoader();
     faceJSON.faces=[]
     let faceParsed = loader.parse( faceJSON );
@@ -90,10 +92,10 @@ class ThreeDee extends Component {
     )
   }
   thrasIt(){
-    this.randomisePointTargets(20000, 1)
+    this.randomisePointTargets(50000, 1)
   }
   updatePointsTargetPositions(){
-    this.randomisePointTargets(5, 0.05)
+    this.randomisePointTargets(5, 0.1)
   }
   animatePoints( speed, delta ){
     this.meshes.face.geometry.vertices.forEach(
