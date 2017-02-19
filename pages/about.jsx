@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import ContentFrame from '../components/content-frame';
 import FlexContainer from '../components/flex-container'
-import faker from 'faker';
+import { config } from 'config'
+import Helmet from 'react-helmet'
 
 class About extends Component {
   render() {
     return (
       <div>
+        <Helmet
+          title={`${config.siteTitle} | About`}
+        />
         <ContentFrame title={"About"}>
         <FlexContainer>
             <div>

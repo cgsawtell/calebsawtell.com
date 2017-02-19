@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ContentFrame from '../components/content-frame';
 import FlexContainer from '../components/flex-container'
+import { config } from 'config'
+import Helmet from 'react-helmet'
 
 class Contact extends Component {
   constructor(props) {
@@ -26,6 +28,9 @@ class Contact extends Component {
   render() {
     return (
       <div>
+        <Helmet
+          title={`${config.siteTitle} | Contact`}
+        />
         <ContentFrame title={"Contact"}>
           <FlexContainer>
             <form onSubmit={e => { this.handleSubmit(e) }}>
