@@ -28,6 +28,7 @@
   display: block;
   border: 1px solid white;
   opacity: 0.3;
+  pointer-events: none;
 }
 .frame-title {
   text-align: center;
