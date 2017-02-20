@@ -1,15 +1,19 @@
 .project-container-footer{
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width:100%;
+  width: 90%;
   height: 10%;
 }
 
 .project-container-footer p{
   margin: 0;
   font-size: 12pt;
+}
+
+.project-container-footer button {
+  width: 100px;
 }
