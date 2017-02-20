@@ -10,7 +10,7 @@ class Work extends Component {
     return (
       <div>
         <Helmet
-          title={`${config.siteTitle} | Work`}
+          title={`${config.siteTitle} - Work`}
         />
         <ContentFrame title={"Work"}>
           <ProjectContainer>

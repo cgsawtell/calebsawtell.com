@@ -29,7 +29,7 @@ class Contact extends Component {
     return (
       <div>
         <Helmet
-          title={`${config.siteTitle} | Contact`}
+          title={`${config.siteTitle} - Contact`}
         />
         <ContentFrame title={"Contact"}>
           <FlexContainer>

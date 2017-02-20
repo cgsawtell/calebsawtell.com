@@ -9,7 +9,7 @@ class About extends Component {
     return (
       <div>
         <Helmet
-          title={`${config.siteTitle} | About`}
+          title={`${config.siteTitle} - About`}
         />
         <ContentFrame title={"About"}>
         <FlexContainer>
