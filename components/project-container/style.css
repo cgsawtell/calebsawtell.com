@@ -4,6 +4,12 @@
   left: 0;
   display: flex;
   justify-content: space-between;
-  /*align-content: space-around;*/
+  align-items: center;
   width:100%;
+  height: 10%;
+}
+
+.project-container-footer p{
+  margin: 0;
+  font-size: 12pt;
 }

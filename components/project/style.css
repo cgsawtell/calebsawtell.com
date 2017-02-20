@@ -1,0 +1,12 @@
+.image-container{
+  border: 1px solid rgb(150, 160, 180);
+  line-height: 0;
+  margin-bottom: 1em;
+}
+
+.image-container img{
+  margin: 0;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
