@@ -1,0 +1,9 @@
+.project-container-footer{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  /*align-content: space-around;*/
+  width:100%;
+}
