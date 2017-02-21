@@ -29,13 +29,7 @@ class Navigation extends React.Component {
         className={"navigation-container"}
         style={{right:rhythm(3/4)}}
       >
-      <Breakpoint minWidth={700}>
-        <div>
-          {
-            <NavItemContainer navItems={navItems} pathname={pathname} />
-          }
-        </div>
-      </Breakpoint>
+      <NavItemContainer navItems={navItems} pathname={pathname} />
       <Breakpoint maxWidth={700}>
         <div>
           <p className={"navigation-menu-button"} onClick={this.showMobileOverlay}>Menu</p>
@@ -65,6 +59,7 @@ const NavItemContainer = ( {navItems, pathname = '', containerClassName = '', on
         )
       )
     }
+    
   </div>
 
   )
