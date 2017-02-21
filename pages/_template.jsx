@@ -46,6 +46,7 @@ module.exports = React.createClass({
         </Headroom>
         <BackgroundVisualisation/>
         <Container
+          className={"content-container"}
           style={{
             maxWidth: 960,
             padding: `${rhythm(1)} ${rhythm(3/4)}`,
