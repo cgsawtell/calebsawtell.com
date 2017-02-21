@@ -29,9 +29,9 @@ class Navigation extends React.Component {
         className={"navigation-container"}
         style={{right:rhythm(3/4)}}
       >
-      <NavItemContainer containerClassName={'desktop-nav'} navItems={navItems} pathname={pathname} />
-      <p className={"navigation-menu-button"} onClick={this.showMobileOverlay}>Menu</p>
-      {this.state.showMenu ? <MobileOverlay hideMobileOverlay={this.hideMobileOverlay} navItems={navItems}/> : ""}
+        <NavItemContainer containerClassName={'desktop-nav'} navItems={navItems} pathname={pathname} />
+        <p className={"navigation-menu-button"} onClick={this.showMobileOverlay}>Menu</p>
+        {this.state.showMenu ? <MobileOverlay hideMobileOverlay={this.hideMobileOverlay} navItems={navItems}/> : ""}
       </div>
     );
   }

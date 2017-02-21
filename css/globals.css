@@ -134,6 +134,7 @@ ul{
   opacity: 1;
   transition: opacity 200ms ease-in;
 }
+
 .wf-loading .content-container {
   opacity: 0;
 }
