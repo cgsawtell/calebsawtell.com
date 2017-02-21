@@ -88,3 +88,21 @@
   height: auto;
   cursor: pointer;
 }
+
+@media (min-width: 700px) {
+  .desktop-nav{
+    display: block;
+  }
+  .navigation-menu-button{
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .desktop-nav{
+    display: none;
+  }
+  .navigation-menu-button{
+    display: block;
+  }
+}
