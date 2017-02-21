@@ -14,3 +14,29 @@
 .project-name{
   margin-bottom: 0.5em;
 }
+
+.slick-next {
+  right: -15px;
+}
+
+.slick-prev {
+  left: -20px;
+  z-index: 1;
+}
+
+.slick-arrow.slick-prev::before{
+  content: url('../../assets/arrowLeft.svg');
+}
+
+.slick-arrow.slick-next::before{
+  content: url('../../assets/arrowRight.svg');
+}
+
+.slick-dots li button:before {
+  color: white;
+}
+
+.slick-dots li.slick-active button:before {
+  opacity: .75;
+  color: white;
+}
