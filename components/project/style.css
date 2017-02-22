@@ -15,8 +15,17 @@
   margin-bottom: 0.5em;
 }
 
+.slick-slider{
+  border-right: solid 1px rgb(150, 160, 180);
+}
+
+.slick-next, .slick-prev{
+  width: 26px;
+  height: 45px;
+}
+
 .slick-next {
-  right: -15px;
+  right: -20px;
 }
 
 .slick-prev {
