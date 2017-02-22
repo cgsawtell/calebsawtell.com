@@ -5,7 +5,6 @@ import { prefixLink } from 'gatsby-helpers'
 import Headroom from 'react-headroom'
 import Navigation from '../components/navigation'
 import BackgroundVisualisation from '../components/background-visualisation'
-import '../css/markdown-styles'
 import '../css/globals'
 
 import { rhythm } from '../utils/typography'

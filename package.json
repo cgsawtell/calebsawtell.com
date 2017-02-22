@@ -4,19 +4,11 @@
   "version": "1.0.0",
   "author": "Caleb Sawtell <caleb.sawtell@gmail.com>",
   "dependencies": {
-    "faker": "^3.1.0",
     "front-matter": "^2.1.1",
     "gatsby": "^0.12.20",
-    "highlight.js": "^9.8.0",
     "history": "^2.0.2",
     "js-yaml": "^3.7.0",
     "lodash": "^4.17.4",
-    "markdown-it": "^7.0.1",
-    "markdown-it-abbr": "^1.0.3",
-    "markdown-it-attrs": "^0.6.3",
-    "markdown-it-deflist": "^2.0.1",
-    "markdown-it-footnote": "^3.0.1",
-    "markdown-it-sub": "^1.0.0",
     "object-assign": "^4.1.0",
     "react-headroom": "^2.1.2",
     "react-helmet": "^3.2.2",
@@ -28,8 +20,7 @@
     "slick-carousel": "^1.6.0",
     "three": "^0.84.0",
     "toml-js": "0.0.8",
-    "typography": "^0.15.0",
-    "typography-plugin-code": "^0.15.0"
+    "typography": "^0.15.0"
   },
   "devDependencies": {
     "exports-loader": "^0.6.3",

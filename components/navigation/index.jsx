@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router'
 import { prefixLink } from 'gatsby-helpers'
-import { Grid, Span, Breakpoint } from 'react-responsive-grid';
 import styles from './navigation.css';
 import { rhythm } from '../../utils/typography'
 import cross from '../../assets/cross.svg'
