@@ -17,11 +17,16 @@ const Project = ({images=[], name='', description='', vimeoId=''}) => {
   let ImageSlider = ''
 
   if(images.length){
-   ImageSlider = <Slider {...settings}>
-      {
-        images.map( image => ( <img src={image}/>  ) )
-      }
-    </Slider>
+    if( process.title === "node" ){ 
+      ImageSlider = <img src={ images[0]}/> 
+    }
+    else {
+      ImageSlider = <Slider {...settings}>
+        {
+          images.map( image => ( <img src={image}/>  ) )
+        }
+      </Slider>
+    }
   }
 
   return (
