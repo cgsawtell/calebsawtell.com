@@ -26,7 +26,13 @@ class ProjectContainer extends Component {
   render() {
     return (
       <div>
-        {this.props.children[this.state.currentProject]}
+        {
+          this.props.children.map(
+            (project, i) => {
+              return <project.type {...project.props} visible={i===this.state.currentProject}/>
+            }
+          )
+        }
         <footer className={'project-container-footer'}>
           <button onClick={this.handlePrevious}>Previous</button>
           <p>{this.state.currentProject+1} of {this.props.children.length}</p>

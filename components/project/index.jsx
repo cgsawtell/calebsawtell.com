@@ -6,7 +6,7 @@ import '../../node_modules/slick-carousel/slick/slick.css'
 import '../../node_modules/slick-carousel/slick/slick-theme.css'
 import './style.css'
 
-const Project = ({images=[], name='', description='', vimeoId=''}) => {
+const Project = ({images=[], name='', description='', vimeoId='', visible=true}) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -28,9 +28,12 @@ const Project = ({images=[], name='', description='', vimeoId=''}) => {
       </Slider>
     }
   }
-
+  const style = {
+    opacity: visible ? 1 : 0,
+    pointerEvents: visible ? 'auto' : 'none'
+  }
   return (
-    <div className={'project'}>
+    <div className={'project'} style={style}>
       <div className={'image-container'}>
         {vimeoId ? <Vimeo videoId = { vimeoId } /> : ImageSlider}
       </div>

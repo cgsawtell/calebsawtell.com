@@ -1,3 +1,11 @@
+.project{
+  position: absolute;
+  transition: opacity 350ms;
+  top:5%;
+  left: 5%;
+  width:90%;
+}
+
 .image-container{
   border: 1px solid rgb(150, 160, 180);
   line-height: 0;
