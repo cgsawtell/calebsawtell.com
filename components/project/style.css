@@ -58,7 +58,9 @@
   color: white;
 }
 
-.slick-next,.slick-prev:focus{
+.slick-next:focus,
+.slick-prev:focus,
+.slick-dots li button:focus{
   animation-name: none!important;
   border: 0;
 }
