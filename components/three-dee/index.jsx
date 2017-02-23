@@ -18,26 +18,26 @@ class ThreeDee extends Component {
     this.facePointLerpAlphas = {}
   }  
   componentDidMount() {
-    // this.setup()
-    // this.animate()
-    // require.ensure(["../../assets/meshes/face.json"], () => {
-    //   const faceJSON = require('../../assets/meshes/face.json');
-    //   const loader = new THREE.JSONLoader();
-    //   faceJSON.faces=[]
-    //   let faceParsed = loader.parse( faceJSON );
+    this.setup()
+    this.animate()
+    require.ensure(["../../assets/meshes/face.json"], () => {
+      const faceJSON = require('../../assets/meshes/face.json');
+      const loader = new THREE.JSONLoader();
+      faceJSON.faces=[]
+      let faceParsed = loader.parse( faceJSON );
       
-    //   this.meshes.pointCloud = this.setupPoints(faceParsed.geometry)
-    //   this.meshes.pointCloud.position.z = -30   
-    //   this.meshes.pointCloud.position.x = 150
-    //   this.meshes.pointCloud.position.y = -20
+      this.meshes.pointCloud = this.setupPoints(faceParsed.geometry)
+      this.meshes.pointCloud.position.z = -30   
+      this.meshes.pointCloud.position.x = 150
+      this.meshes.pointCloud.position.y = -20
     
-    //   this.meshes.pointCloud.rotateX(THREE.Math.degToRad(-10))
-    //   this.meshes.pointCloud.rotateY(THREE.Math.degToRad(30))
+      this.meshes.pointCloud.rotateX(THREE.Math.degToRad(-10))
+      this.meshes.pointCloud.rotateY(THREE.Math.degToRad(30))
 
-    //   this.thrasIt();
-    //   this.scene.add( this.meshes.pointCloud );
-    //   setInterval(this.updatePointsTargetPositions.bind(this), 300);
-    // })    
+      this.thrasIt();
+      this.scene.add( this.meshes.pointCloud );
+      setInterval(this.updatePointsTargetPositions.bind(this), 300);
+    })    
   }
   setup(){
     this.clock = new THREE.Clock();
