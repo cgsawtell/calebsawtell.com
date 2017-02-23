@@ -57,3 +57,8 @@
   opacity: .75;
   color: white;
 }
+
+.project-container-footer button{
+  font-size: 10pt;
+  font-weight: 700;
+}

@@ -29,7 +29,7 @@ body{
   margin-left: 0.35em;
 }
 
-input,textarea{
+input,textarea, button{
   display: block;
   width: 100%;
   margin-bottom: 1em;
@@ -46,7 +46,8 @@ textarea{
 }
 
 input:focus,
-textarea:focus{
+textarea:focus,
+button:focus{
   animation-name: dip-in;
   animation-duration: 400ms;
   animation-timing-function: ease-in;
