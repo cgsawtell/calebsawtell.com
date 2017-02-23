@@ -74,6 +74,7 @@ button:focus{
 input[type="submit"]{
   transition: transform 350ms ease-out;
   width: 45%;
+  min-width: 130px;
   margin-left: 30%;
   margin-top: 1.5em;
   height: 3em;
