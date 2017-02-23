@@ -18,6 +18,7 @@
   top: 1rem;
   opacity: 1;
   transition: opacity 200ms ease-in;
+  z-index: 1;
 }
 
 .wf-loading .navigation-container {
