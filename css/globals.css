@@ -29,6 +29,21 @@ body{
   margin-left: 0.35em;
 }
 
+@media (max-width: 550px){
+  .name-tag-container{
+    position: absolute;
+    bottom:5vh;
+  }
+  .name{
+    font-size: 75pt;
+    line-height: 80pt;
+  }
+  .tag{
+    font-size: 15pt;
+    line-height: 18.5pt;
+  }
+}
+
 input,textarea, button{
   display: block;
   width: 100%;
