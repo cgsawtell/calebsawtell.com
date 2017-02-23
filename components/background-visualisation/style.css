@@ -1,13 +1,19 @@
 
 .background-visualisation{
-  position: absolute;
+  position: fixed;
   z-index: -1;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 120%;
   background-color: rgb(20, 30, 50);
   background-size: 5vw;
+}
+
+@media (max-width:900px){
+  .background-visualisation{
+    background-size: 10vw;
+  }
 }
 
 @keyframes pulse {

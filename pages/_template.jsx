@@ -44,7 +44,7 @@ module.exports = React.createClass({
           </Container>
         </Headroom>
         <BackgroundVisualisation/>
-        <Container
+        <div
           className={"content-container"}
           style={{
             maxWidth: 960,
@@ -53,7 +53,7 @@ module.exports = React.createClass({
           }}
         >
           {this.props.children}
-        </Container>
+        </div>
       </div>
     )
   },

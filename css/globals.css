@@ -31,14 +31,15 @@ body{
 
 @media (max-width: 550px){
   .name-tag-container{
-    position: absolute;
     bottom:5vh;
   }
   .name{
-    font-size: 75pt;
-    line-height: 80pt;
+    font-size: 70pt;
+    line-height: 75pt;
+    margin-bottom: 0.2em;
   }
   .tag{
+    margin-left: 0;
     font-size: 15pt;
     line-height: 18.5pt;
   }
@@ -120,6 +121,28 @@ ul{
   width: 100%;
 }
 
+@media (max-width: 520px){
+  .skills-container {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 95%;
+  }
+  .skills-container ul{
+    margin-bottom: 0.5em;
+  }
+
+  .skills-container ul li:first-of-type{
+    display: block;
+  }
+
+  .skills-container ul li{
+    display: inline-block;
+    margin-right: 1em;
+    margin-bottom: 0.2em;
+  }
+}
+
 .subheading{
   text-align: center;
   font-size: 17pt;
@@ -149,6 +172,8 @@ ul{
 .content-container{
   opacity: 1;
   transition: opacity 200ms ease-in;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .wf-loading .content-container {

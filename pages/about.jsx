@@ -14,7 +14,7 @@ class About extends Component {
         <ContentFrame title={"About"}>
         <FlexContainer>
             <div>
-              <p>Caleb Sawtell is a designer & developer based Wellington, New Zealand. <br/>I love crafting delightful interactive experiences.</p>
+              <p>Caleb Sawtell is a designer & developer based Wellington, New Zealand. I love crafting delightful interactive experiences.</p>
             </div>
             <h4 className={"subheading"}>Skills</h4>
             <div className={"skills-container"}>
