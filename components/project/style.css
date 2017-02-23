@@ -58,6 +58,11 @@
   color: white;
 }
 
+.slick-next,.slick-prev:focus{
+  animation-name: none!important;
+  border: 0;
+}
+
 .project-container-footer button{
   font-size: 10pt;
   font-weight: 700;
