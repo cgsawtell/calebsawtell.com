@@ -125,7 +125,7 @@ class ThreeDee extends Component {
   }
   render() {
     return (
-      <canvas ref={ el => { this.canvas = el }} style={{position:'absolute',top:0,left:0}}></canvas>
+      <canvas ref={ el => { this.canvas = el }} style={{position:'absolute',bottom:0,right:0}}></canvas>
     );
   }
 }
