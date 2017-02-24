@@ -107,6 +107,7 @@ function createRequest({headers, method, url, requestBody}){
       case 'application/json':
         requestObject.body = JSON.stringify(requestBody)
         break;
+      case 'application/x-form-urlencoded':
       case 'application/x-www-form-urlencoded':
         requestObject.body = toQueryString(requestBody)
         break;
