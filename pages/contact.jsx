@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ContentFrame from '../components/content-frame';
 import FlexContainer from '../components/flex-container'
+import {postData} from '../utils/api-interaction.js'
 import { config } from 'config'
 import Helmet from 'react-helmet'
 
@@ -19,6 +20,10 @@ class Contact extends Component {
   handleSubmit(e){
     e.preventDefault();
     console.log(this.state,this.form.attributes.action);
+    postData(this.form.attributes.action,this.state)
+    .then(
+      ()=>{console.log('submitted');}
+    )
   }
   handleChange(e){
     let updatedField = {}
@@ -33,7 +38,7 @@ class Contact extends Component {
         />
         <ContentFrame title={"Contact"}>
           <FlexContainer>
-            <form ref={ (e) => {this.form = e}} name={"contact"} action={"hello"} onSubmit={e => { this.handleSubmit(e) }} data-netlify={true}>
+            <form ref={ (e) => {this.form = e}} name={"hello"} action={"hello"} onSubmit={e => { this.handleSubmit(e) }} data-netlify={true}>
               <label htmlFor={"name"}>Name</label>
               <input id="name" name={'name'} type="text" onChange={e => this.handleChange(e)}/>
               <label htmlFor={"email"}>Email</label>
