@@ -19,8 +19,8 @@ class Contact extends Component {
   }
   handleSubmit(e){
     e.preventDefault();
-    console.log(this.state,this.form.attributes.action);
-    postData(this.form.attributes.action,this.state)
+    const url = this.form.attributes.action.value
+    postData(url, this.state, 'application/x-form-urlencoded')
     .then(
       ()=>{console.log('submitted');}
     )
