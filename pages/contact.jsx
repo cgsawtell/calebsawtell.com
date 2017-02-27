@@ -20,10 +20,12 @@ class Contact extends Component {
   handleSubmit(e){
     e.preventDefault();
     const url = this.form.attributes.action.value
-    const formData = Object.assign({},this.state,{'form-name':this.form.attributes.action.value})
+    const formData = Object.assign({},{'form-name':this.form.attributes.action.value},this.state)
     postData(url, formData, 'application/x-form-urlencoded')
     .then(
-      ()=>{console.log('submitted');}
+      () => {
+        console.log('submitted');
+      }
     )
   }
   handleChange(e){
