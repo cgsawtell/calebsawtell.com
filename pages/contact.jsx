@@ -20,7 +20,7 @@ class Contact extends Component {
   handleSubmit(e){
     e.preventDefault();
     const url = this.form.attributes.action.value
-    const formData = Object.assign({},{'form-name':this.form.attributes.action.value},this.state)
+    const formData = Object.assign({},{'form-name':this.form.attributes.name.value},this.state)
     postData(url, formData, 'application/x-form-urlencoded')
     .then(
       () => {
@@ -41,7 +41,7 @@ class Contact extends Component {
         />
         <ContentFrame title={"Contact"}>
           <FlexContainer>
-            <form ref={ (e) => {this.form = e}} name={"contact"} action={"contact"} onSubmit={e => { this.handleSubmit(e) }} data-netlify={true}>
+            <form ref={ (e) => {this.form = e}} name={"contact-form"} action={"contact"} onSubmit={e => { this.handleSubmit(e) }} data-netlify={true}>
               <label htmlFor={"name"}>Name</label>
               <input id="name" name={'name'} type="text" onChange={e => this.handleChange(e)}/>
               <label htmlFor={"email"}>Email</label>
