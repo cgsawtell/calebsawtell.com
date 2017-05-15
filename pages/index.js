@@ -11,8 +11,8 @@ export default class Index extends React.Component {
         <Helmet
           title={config.siteTitle}
           meta={[
-            {"name": "description", "content": "Sample"},
-            {"name": "keywords", "content": "sample, something"},
+            {"name": "description", "content": "Caleb Sawtell is a Wellington based Designer & Frontend Developer"},
+            {"name": "keywords", "content": "design, web development, new zealand, frontend, ui, ux, wellington"},
           ]}
         />
         <div className={'name-tag-container'}>
