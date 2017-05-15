@@ -41,7 +41,7 @@ class Contact extends Component {
         />
         <ContentFrame title={"Contact"}>
           <FlexContainer>
-            <form name={"contact-form"} data-netlify={true}>
+            <form name={"contact-form"} action={"/contact"} onSubmit={e => { this.handleSubmit }} data-netlify={true}>
               <label htmlFor={"name"}>Name</label>
               <input id="name" name={'name'} type="text" onChange={e => this.handleChange(e)}/>
               <label htmlFor={"email"}>Email</label>
