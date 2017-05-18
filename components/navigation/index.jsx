@@ -38,7 +38,7 @@ class Navigation extends React.Component {
 
 const NavItemContainer = ( {navItems, pathname = '', containerClassName = '', onClickFunction = () => {} } ) =>{
   return (
-  <div className={containerClassName}>
+  <nav className={containerClassName}>
     {
       navItems.map(
         navItem => (
@@ -55,7 +55,7 @@ const NavItemContainer = ( {navItems, pathname = '', containerClassName = '', on
       )
     }
     
-  </div>
+  </nav>
 
   )
 }
