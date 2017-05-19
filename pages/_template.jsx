@@ -17,39 +17,15 @@ module.exports = React.createClass({
   },
   render () {
     return (
-      <div>
-        <Headroom
-          wrapperStyle={{
-            marginBottom: rhythm(1),
-          }}
-        >
-          <Container
-            style={{
-              maxWidth: 960,
-              paddingTop: 0,
-              padding: `${rhythm(1)} ${rhythm(3/4)}`,
-              position: 'relative'
-            }}
-          >
-            <Link
-              to={prefixLink('/')}
-              style={{
-                color: 'black',
-                textDecoration: 'none',
-              }}
-            >
-              
-            </Link>
-            <Navigation pathname={this.props.location.pathname} navItems={[{title:'Home',pathname:'/'},{title:'About',pathname:'/about/'},{title:'Work',pathname:'/work/'},{title:'Contact',pathname:'/contact/'}]}/>
-          </Container>
-        </Headroom>
+      <div>     
+        <Navigation pathname={this.props.location.pathname} navItems={[{title:'Home',pathname:'/'},{title:'About',pathname:'/about/'},{title:'Work',pathname:'/work/'},{title:'Contact',pathname:'/contact/'}]}/>
         <BackgroundVisualisation/>
         <div
           className={"content-container"}
           style={{
             maxWidth: 960,
             padding: `${rhythm(1)} ${rhythm(3/4)}`,
-            paddingTop: 0,
+            paddingTop: '10vh',
           }}
         >
           {this.props.children}

@@ -179,6 +179,7 @@ ul{
   transition: opacity 200ms ease-in;
   margin-left: auto;
   margin-right: auto;
+  height:100vh;
 }
 
 .wf-loading .content-container {

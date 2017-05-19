@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router'
 import { prefixLink } from 'gatsby-helpers'
 import styles from './navigation.css';
-import { rhythm } from '../../utils/typography'
 import cross from '../../assets/cross.svg'
 
 class Navigation extends React.Component {
@@ -26,7 +25,6 @@ class Navigation extends React.Component {
     return (
       <div 
         className={"navigation-container"}
-        style={{right:rhythm(3/4)}}
       >
         <NavItemContainer containerClassName={'desktop-nav'} navItems={navItems} pathname={pathname} />
         <p className={"navigation-menu-button"} onClick={this.showMobileOverlay}>Menu</p>
