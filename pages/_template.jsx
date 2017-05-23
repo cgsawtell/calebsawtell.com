@@ -17,8 +17,10 @@ module.exports = React.createClass({
   },
   render () {
     return (
-      <div>     
-        <Navigation pathname={this.props.location.pathname} navItems={[{title:'Home',pathname:'/'},{title:'About',pathname:'/about/'},{title:'Work',pathname:'/work/'},{title:'Contact',pathname:'/contact/'}]}/>
+      <div>
+        <header>
+          <Navigation pathname={this.props.location.pathname} navItems={[{title:'Home',pathname:'/'},{title:'About',pathname:'/about/'},{title:'Work',pathname:'/work/'},{title:'Contact',pathname:'/contact/'}]}/>
+        </header> 
         <BackgroundVisualisation/>
         <div
           className={"content-container"}
